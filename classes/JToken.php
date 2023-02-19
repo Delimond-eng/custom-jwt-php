@@ -2,12 +2,12 @@
 
 namespace classes;
 
+use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 class JToken
 {
-
     private static $secret_key = "RTG1234";
     private static $algo="HS256";
     /*
