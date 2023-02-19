@@ -20,7 +20,7 @@ class JToken
             if($authorization){
                 $jwt =  $headers["Authorization"];
                 $token =str_replace("Bearer ", "", $jwt);
-                $decoded = JWT::decode($token , new Key(self::$secret_key, self::$algo));
+                JWT::decode($token , new Key(self::$secret_key, self::$algo));
                 return true;
             }
             else{
@@ -41,11 +41,12 @@ class JToken
             );
             return false;
         }
+        return false;
     }
 
     /**
      * parse user data to credential token
-     * @return json|false|string
+     * @return false|string
      */
     public static function parseCredential($user){
         $payload = [
