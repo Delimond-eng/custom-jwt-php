@@ -1,0 +1,6 @@
+RewriteEngine On
+#removed %{DOCUMENT_ROOT} as it is unnecessary
+RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.bmp|\.css|\.js)$ [NC]
+#Prevent internal redirects
+RewriteCond %{ENV:REDIRECT_STATUS} !200
+RewriteRule ^(.*)  index.php [L]
